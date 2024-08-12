@@ -120,7 +120,7 @@ public class GamePanel extends JPanel implements ActionListener {
         g.setFont(new Font("Arial", Font.PLAIN, 50));
         String message;
         if (player1Score > player2Score) {
-            message = "Jugador 2 gana";
+            message = "Jugador 1 gana";
         } else if (player2Score > player1Score) {
             message = "Jugador 2 gana";
         } else {
