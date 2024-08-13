@@ -1,6 +1,6 @@
 package clases;
 
-public class Paddle {
+public class Jugador {
 
     public static final int WIDTH = 10;
     public static final int HEIGHT = 100;
@@ -11,7 +11,7 @@ public class Paddle {
     private boolean upPressed, downPressed;
     private int speed;
 
-    public Paddle(int x, int y) {
+    public Jugador(int x, int y) {
         this.x = x;
         this.y = y;
         this.speed = INITIAL_SPEED;
@@ -19,7 +19,7 @@ public class Paddle {
 
     public void move() {
         if (upPressed && y > 0) y -= speed;
-        if (downPressed && y < GamePanel.HEIGHT - HEIGHT) y += speed;
+        if (downPressed && y < PanelPrincipal.HEIGHT - HEIGHT) y += speed;
     }
 
     public void increaseSpeed() {

@@ -7,7 +7,7 @@ public class PongGame {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Pong Game");
-        GamePanel gamePanel = new GamePanel();
+        PanelPrincipal gamePanel = new PanelPrincipal();
         frame.add(gamePanel);
         frame.pack();
 
