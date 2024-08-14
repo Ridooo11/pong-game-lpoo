@@ -29,7 +29,6 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         setBackground(Color.BLACK);
         setFocusable(true);
-        
 
         player1 = new Jugador(30, HEIGHT / 2 - Jugador.HEIGHT / 2);
         player2 = new Jugador(WIDTH - 40 - Jugador.WIDTH, HEIGHT / 2 - Jugador.HEIGHT / 2);
@@ -43,6 +42,9 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                 if (key == KeyEvent.VK_S) player1.setDownPressed(true);
                 if (key == KeyEvent.VK_UP) player2.setUpPressed(true);
                 if (key == KeyEvent.VK_DOWN) player2.setDownPressed(true);
+                if (key == KeyEvent.VK_ENTER && !gameRunning) {
+                    resetGame();
+                }
             }
 
             @Override
@@ -119,6 +121,11 @@ public class PanelPrincipal extends JPanel implements ActionListener {
     }
 
     private void drawGameOver(Graphics g) {
+        
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setColor(new Color(0, 0, 0, 150));
+        g2d.fillRect(0, 0, WIDTH, HEIGHT);
+
         g.setColor(Color.WHITE);
         g.setFont(new Font("Arial", Font.PLAIN, 50));
         String message;
@@ -129,7 +136,11 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         } else {
             message = "Empate";
         }
-        g.drawString(message, WIDTH / 2 - g.getFontMetrics().stringWidth(message) / 2, HEIGHT / 2);
+        g.drawString(message, WIDTH / 2 - g.getFontMetrics().stringWidth(message) / 2, HEIGHT / 2 - 50);
+        
+     
+        g.setFont(new Font("Arial", Font.PLAIN, 30));
+        g.drawString("Pulse ENTER para reiniciar", WIDTH / 2 - g.getFontMetrics().stringWidth("Pulse ENTER para reiniciar") / 2, HEIGHT / 2 + 50);
     }
 
     @Override
@@ -178,5 +189,15 @@ public class PanelPrincipal extends JPanel implements ActionListener {
             (player1Score >= SCORE_LIMIT || player2Score >= SCORE_LIMIT)) {
             gameRunning = false;
         }
+    }
+
+    private void resetGame() {
+        player1Score = 0;
+        player2Score = 0;
+        firstHalf = true;
+        periodStartTime = System.currentTimeMillis();
+        ball.reset();
+        gameRunning = true;
+        repaint();
     }
 }
