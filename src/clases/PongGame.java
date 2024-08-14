@@ -11,7 +11,7 @@ public class PongGame {
         frame.add(gamePanel);
         frame.pack();
 
-        // Centrando la ventana en la pantalla
+        
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension screenSize = toolkit.getScreenSize();
         int frameWidth = frame.getWidth();
@@ -19,7 +19,8 @@ public class PongGame {
         int x = (screenSize.width - frameWidth) / 2;
         int y = (screenSize.height - frameHeight) / 2;
         frame.setLocation(x, y);
-
+        
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }

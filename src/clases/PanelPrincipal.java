@@ -161,6 +161,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
             } else {
                 player1Score++;
             }
+            ball.reset();
             ball.resetWithDirection(false); 
         } else if (ball.getX() > WIDTH) {
             if (firstHalf) {
