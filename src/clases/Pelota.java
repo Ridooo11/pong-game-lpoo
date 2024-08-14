@@ -33,7 +33,7 @@ public class Pelota {
         Rectangle paddle2Bounds = new Rectangle(p2.getX(), p2.getY(), Jugador.WIDTH, Jugador.HEIGHT);
 
         if (ballBounds.intersects(paddle1Bounds) || ballBounds.intersects(paddle2Bounds)) {
-            velocityX = -velocityX;
+            velocityX = -velocityX;           
             increaseSpeed();
         }
     }

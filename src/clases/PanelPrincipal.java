@@ -12,7 +12,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
     private static final long serialVersionUID = -1480359743256212572L;
     public static final int WIDTH = 800;
     public static final int HEIGHT = 600;
-    private static final int PERIOD_DURATION = 60; // segundos por período
+    private static final int PERIOD_DURATION = 60;
     private static final int SCORE_LIMIT = 7;
     private static final int SCORE_DIFFERENCE = 2;
 
@@ -29,6 +29,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         setBackground(Color.BLACK);
         setFocusable(true);
+        
 
         player1 = new Jugador(30, HEIGHT / 2 - Jugador.HEIGHT / 2);
         player2 = new Jugador(WIDTH - 40 - Jugador.WIDTH, HEIGHT / 2 - Jugador.HEIGHT / 2);
